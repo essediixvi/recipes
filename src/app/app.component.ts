@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,5 +8,21 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'recipes';
+  count = signal(0);
+ 
+  constructor() { 
+   
+  }
+
+  ngOnInit() {
+    
+  }
+
+  setRecipes() {
+    this.count.update(value => value + 1);
+    console.log('The count is: ' + this.count());
+
+  }
+  
+  
 }
